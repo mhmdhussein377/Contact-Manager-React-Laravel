@@ -21,6 +21,7 @@ class ContactController extends Controller
         $contact->phone_number = $request->phone_number;
         $contact->latitude = $request->latitude;
         $contact->longitude = $request->longitude;
+        $contact->save();
 
         if($contact) {
             return response()->json($contact);
@@ -34,12 +35,28 @@ class ContactController extends Controller
     function getContacts($id = null) {
 
         if($id) {
-            $contacts = Contact::all();
-        }else {
             $contacts = Contact::find($id);
+        }else {
+            $contacts = Contact::all();
         }
 
         return response()->json($contacts);
+    }
+
+    function updateContact(Request $request, $id) {
+
+        $contact = Contact::find($id);
+
+        $contact->name = $request->name;
+        $contact->phone_number = $request->phone_number;
+        $contact->longitude = $request->longitude;
+        $contact->latitude = $request->latitude;
+        $contact->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'the contact has been updated'
+        ]);
     }
 
     function deleteContact($id) {
@@ -47,7 +64,7 @@ class ContactController extends Controller
         Contact::find($id)->delete();
 
         return response()->json([
-            'status' => 'successful',
+            'status' => 'success',
             'message' => 'the contact has been deleted',
         ]);
     }
