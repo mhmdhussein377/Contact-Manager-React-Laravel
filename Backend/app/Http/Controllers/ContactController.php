@@ -31,5 +31,16 @@ class ContactController extends Controller
         }
     }
 
+    function getContacts($id = null) {
+
+        if($id) {
+            $contacts = Contact::all();
+        }else {
+            $contacts = Contact::find($id);
+        }
+
+        return response()->json($contacts);
+    }
+
     
 }
