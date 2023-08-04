@@ -1,0 +1,94 @@
+.login {
+    background-color: #a4b3bc;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.login-box {
+    background-color: white;
+    padding: 50px 40px;
+}
+
+.login .headers {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.login .headers h2 {
+    font-weight: 400;
+    font-size: 1.375rem;
+    text-transform: uppercase;
+}
+
+.login .headers h2 span {
+    font-weight: 600;
+}
+
+.login .headers p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #949397;
+    max-width: 460px;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login .name-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.login label {
+    font-size: 1.2rem;
+}
+
+.login input {
+    padding: 14px 10px;
+    font-size: 1rem;
+}
+
+.login input:focus {
+    outline: 1px solid #546bdd;
+}
+
+.login .name-inputs .input {
+    flex: 1;
+}
+
+.login .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.login button {
+    background-color: #2545ce;
+    color: white;
+    width: 100%;
+    padding: 14px 0;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.login .to-register {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login .to-register a {
+    color: #2545ce;
+    font-weight: 500;
+    font-size: 1.125rem;
+}
