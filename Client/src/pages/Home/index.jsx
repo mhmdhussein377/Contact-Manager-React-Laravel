@@ -24,7 +24,7 @@ const index = () => {
     useEffect(() => {
         const getContacts = async() => {
             let response = await axios.post(`http://127.0.0.1:8000/api/contacts`, {user_id});
-            console.log(response.data)
+            setContacts(response.data)
         }
         getContacts()
     }, [])

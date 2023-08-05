@@ -1,14 +1,17 @@
 import "./style.css"
 import ContactCard from "./../ContactCard"
 
-const index = () => {
+const index = ({contacts}) => {
+
+    console.log(contacts?.length)
+
     return (
         <div className="contact-list">
-            <ContactCard />
-            <ContactCard />
-            <ContactCard />
+            {contacts.map((contact, index) => (
+                <ContactCard key={index} contact={contact}/>
+            ))}
         </div>
-    )
+    );
 }
 
 export default index
