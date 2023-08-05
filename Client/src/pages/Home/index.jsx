@@ -1,29 +1,43 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import "./style.css"
 import Header from "./../../components/Header"
 import ContactList from "./../../components/ContactList"
 import ContactForm from "./../../components/ContactForm"
 import jwt_decode from 'jwt-decode'
-import { AiOutlinePlus } from "react-icons/ai"
-import { useState } from "react"
+import {AiOutlinePlus} from "react-icons/ai"
+import {useEffect, useState} from "react"
+import axios from "axios"
 
 const index = () => {
 
-    const [isOpened, setIsOpened] = useState(false)
+    let [contacts,
+        setContacts] = useState([])
+    let [isOpened,
+        setIsOpened] = useState(false)
 
     const token = localStorage.getItem("token")
     const payloadBase64 = token.split(".")[1];
     const payloadDecoded = atob(payloadBase64);
     const payloadData = JSON.parse(payloadDecoded);
-    const userID = payloadData.user_data.id
+    const user_id = payloadData.user_data.id
+
+    useEffect(() => {
+        const getContacts = async() => {
+            let response = await axios.post(`http://127.0.0.1:8000/api/contacts`, {user_id});
+            console.log(response.data)
+        }
+        getContacts()
+    }, [])
 
     return (
         <div className="home">
             <Header/>
             <div className="add-contact container">
-                <button onClick={e => setIsOpened(true)}><AiOutlinePlus size={20} /> Add Contact</button>
+                <button onClick={e => setIsOpened(true)}><AiOutlinePlus size={20}/>
+                    Add Contact</button>
             </div>
-            {isOpened && <ContactForm setIsOpened={setIsOpened} />}
-            <ContactList/>
+            {isOpened && <ContactForm setIsOpened={setIsOpened}/>}
+            <ContactList contacts={contacts}/>
         </div>
     )
 }
