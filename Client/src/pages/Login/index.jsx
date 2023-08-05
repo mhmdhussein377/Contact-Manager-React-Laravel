@@ -9,10 +9,11 @@ const index = () => {
         setEmail] = useState("");
     let [password,
         setPassword] = useState("");
-    let [error, setError] = useState(false)
+    let [error,
+        setError] = useState(false)
     const navigate = useNavigate()
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
 
         const data = {
@@ -37,7 +38,8 @@ const index = () => {
             <div className="login-box">
                 <div className="headers">
                     <h2>
-                        welcome <span>back!</span>
+                        welcome
+                        <span>back!</span>
                     </h2>
                     <p>
                         Log in to access your contacts and stay organized effortlessly.
@@ -47,6 +49,7 @@ const index = () => {
                     <div className="input">
                         <label htmlFor="email">Email</label>
                         <input
+                            id="email"
                             onChange={(e) => setEmail(e.target.value)}
                             type="email"
                             placeholder="example@gmail.com"/>
@@ -54,6 +57,7 @@ const index = () => {
                     <div className="input">
                         <label htmlFor="password">Password</label>
                         <input
+                            id="password"
                             onChange={(e) => setPassword(e.target.value)}
                             type="password"
                             placeholder="*42n16j1"/>

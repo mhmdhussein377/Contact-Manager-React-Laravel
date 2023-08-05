@@ -60,6 +60,7 @@ const index = () => {
                         <div className="input first-name-input">
                             <label htmlFor="first-name">First Name</label>
                             <input
+                                id="first-name"
                                 required
                                 onChange={e => setFirstName(e.target.value)}
                                 type="text"
@@ -68,6 +69,7 @@ const index = () => {
                         <div className="input last-name-input">
                             <label htmlFor="last-name">Last Name</label>
                             <input
+                                id="last-name"
                                 required
                                 onChange={e => setLastName(e.target.value)}
                                 type="text"
@@ -77,6 +79,7 @@ const index = () => {
                     <div className="input">
                         <label htmlFor="email">Email</label>
                         <input
+                            id="email"
                             required
                             onChange={e => setEmail(e.target.value)}
                             type="email"
@@ -85,6 +88,7 @@ const index = () => {
                     <div className="input">
                         <label htmlFor="password">Password</label>
                         <input
+                            id="password"
                             required
                             onChange={e => setPassword(e.target.value)}
                             type="password"

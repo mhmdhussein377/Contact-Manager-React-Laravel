@@ -1,0 +1,96 @@
+.contact-form {
+    position: fixed;
+    width: 100%;
+    background-color: #a4b3bc;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    z-index: 999;
+}
+
+.contact-form-box {
+    min-width: 450px;
+    background-color: white;
+    padding: 50px 40px;
+    position: relative;
+}
+
+.contact-form-box .close {
+    background-color: #ccc;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form .address-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+.contact-form label {
+    font-size: 1.2rem;
+}
+
+.contact-form input {
+    padding: 14px 10px;
+    font-size: 1rem;
+}
+
+.contact-form input:focus {
+    outline: 1px solid #546bdd;
+}
+
+.contact-form .address-inputs .input {
+    flex: 1;
+}
+
+.contact-form .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contact-form button {
+    background-color: #2545ce;
+    color: white;
+    width: 100%;
+    padding: 14px 0;
+    font-weight: bold;
+    font-size: 1.125rem;
+    font-weight: 500;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.contact-form .to-register {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-form .to-register a {
+    color: #2545ce;
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+
+.contact-form .error {
+    color: #2545ce;
+}
+
