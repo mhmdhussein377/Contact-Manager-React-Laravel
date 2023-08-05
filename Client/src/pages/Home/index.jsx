@@ -24,7 +24,7 @@ const index = () => {
     useEffect(() => {
         const getContacts = async() => {
             let response = await axios.post(`http://127.0.0.1:8000/api/contacts`, {user_id});
-            setContacts(response.data)
+            setContacts(response.data.reverse())
         }
         getContacts()
     }, [])
@@ -33,7 +33,7 @@ const index = () => {
         <div className="home">
             <Header/>
             <div className="add-contact container">
-                <button onClick={(e) => setIsOpened(true)}>
+                <button onClick={() => setIsOpened(true)}>
                     <AiOutlinePlus size={20}/>
                     Add Contact
                 </button>

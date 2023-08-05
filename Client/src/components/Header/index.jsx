@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import "./style.css"
 
 const index = () => {
 
     const navigate = useNavigate()
+    const url = window.location.href
 
     const handleLogout = () => {
         localStorage.removeItem("token")
@@ -12,10 +13,14 @@ const index = () => {
 
     return (
         <div className="header">
-            <h2>Contact Manager</h2>
-            <div onClick={handleLogout} className="logout">Logout</div>
+            {url.split("/")[3] === "contact"
+                ? <Link to={"/"}>Back</Link>
+                : <h2>Contact Manager</h2>}
+            <div onClick={handleLogout} className="logout">
+                Logout
+            </div>
         </div>
-    )
+    );
 }
 
 export default index
