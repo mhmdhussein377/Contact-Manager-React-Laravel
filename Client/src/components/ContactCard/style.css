@@ -1,0 +1,41 @@
+.contact-card {
+    padding: 20px 30px;
+    background-color: white;
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.contact-card .image {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(32, 221, 48);
+    color: white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.contact-card .details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-card .details > * {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-card .details .name {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #636363;
+}
