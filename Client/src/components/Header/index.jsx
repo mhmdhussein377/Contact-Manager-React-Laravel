@@ -14,7 +14,7 @@ const index = () => {
     return (
         <div className="header">
             {url.split("/")[3] === "contact"
-                ? <Link to={"/"}>Back</Link>
+                ? <Link to={"/home"}>Back</Link>
                 : <h2>Contact Manager</h2>}
             <div onClick={handleLogout} className="logout">
                 Logout

@@ -24,7 +24,7 @@ const index = () => {
         try {
             let response = await axios.post("http://127.0.0.1:8000/api/login", data);
             localStorage.setItem('token', response.data.authorisation.token)
-            navigate("/")
+            navigate("/home")
         } catch (error) {
             setError(true)
             setTimeout(() => {
