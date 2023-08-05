@@ -16,7 +16,7 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::post('create-contact', [ContactController::class, 'createContact']);
 
-Route::get('contacts/{id?}', [ContactController::class, 'getContacts']);
+Route::post('contacts/{id?}', [ContactController::class, 'getContacts']);
 
 Route::put('update-contact/{id}', [ContactController::class, 'updateContact']);
 

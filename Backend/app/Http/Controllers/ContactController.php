@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -12,6 +13,7 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required|string',
             'phone_number' => 'required|string',
+            'user_id' => 'required|string',
             'longitude' => 'required|numeric',
             'latitude' => 'required|numeric'
         ]);
@@ -21,6 +23,7 @@ class ContactController extends Controller
         $contact->phone_number = $request->phone_number;
         $contact->latitude = $request->latitude;
         $contact->longitude = $request->longitude;
+        $contact->user_id = $request->user_id;
         $contact->save();
 
         if($contact) {
@@ -32,12 +35,13 @@ class ContactController extends Controller
         }
     }
 
-    function getContacts($id = null) {
+    function getContacts(Request $request, $id = null) {
+        $user = User::find($request->user_id);
 
         if($id) {
             $contacts = Contact::find($id);
         }else {
-            $contacts = Contact::all();
+            $contacts = $user->contacts;
         }
 
         return response()->json($contacts);
