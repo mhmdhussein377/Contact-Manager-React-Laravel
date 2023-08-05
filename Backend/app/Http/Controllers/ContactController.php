@@ -13,7 +13,7 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required|string',
             'phone_number' => 'required|string',
-            'user_id' => 'required|string',
+            'user_id' => 'required|int',
             'longitude' => 'required|numeric',
             'latitude' => 'required|numeric'
         ]);
@@ -48,6 +48,13 @@ class ContactController extends Controller
     }
 
     function updateContact(Request $request, $id) {
+
+        $request->validate([
+            'name' => 'required|string',
+            'phone_number' => 'required|string',
+            'longitude' => 'required|numeric',
+            'latitude' => 'required|numeric'
+        ]);
 
         $contact = Contact::find($id);
 

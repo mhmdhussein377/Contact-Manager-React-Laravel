@@ -33,13 +33,15 @@ const index = () => {
         <div className="home">
             <Header/>
             <div className="add-contact container">
-                <button onClick={e => setIsOpened(true)}><AiOutlinePlus size={20}/>
-                    Add Contact</button>
+                <button onClick={(e) => setIsOpened(true)}>
+                    <AiOutlinePlus size={20}/>
+                    Add Contact
+                </button>
             </div>
-            {isOpened && <ContactForm setIsOpened={setIsOpened}/>}
+            {isOpened && (<ContactForm setContacts={setContacts} user_id={user_id} setIsOpened={setIsOpened}/>)}
             <ContactList contacts={contacts}/>
         </div>
-    )
+    );
 }
 
 export default index

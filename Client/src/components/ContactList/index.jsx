@@ -3,8 +3,6 @@ import ContactCard from "./../ContactCard"
 
 const index = ({contacts}) => {
 
-    console.log(contacts?.length)
-
     return (
         <div className="contact-list">
             {contacts.map((contact, index) => (
