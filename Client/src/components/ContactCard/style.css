@@ -9,7 +9,7 @@
 .contact-card .image {
     width: 70px;
     height: 70px;
-    font-size: 2rem;
+    font-size: 1.875rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,11 @@
 }
 
 .contact-card .details .name {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 500;
     color: #636363;
+}
+
+.contact-card .details .phone, .contact-card .details .address {
+    font-size: 1.125rem;
 }

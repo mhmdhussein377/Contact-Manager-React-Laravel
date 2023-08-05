@@ -5,7 +5,7 @@ import { FaLocationDot } from 'react-icons/fa6'
 const index = () => {
     return (
         <div className="contact-card">
-            <div className="image">M</div>
+            <div className="image">MH</div>
             <div className="details">
                 <div className="name">Mhmd Hussein</div>
                 <div className="phone"><BsFillTelephoneFill/> 81 954 732</div>

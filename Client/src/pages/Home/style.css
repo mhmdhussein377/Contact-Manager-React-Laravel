@@ -1,5 +1,13 @@
 .home {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+}
+
+.add-contact button {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    background-color: ;
 }

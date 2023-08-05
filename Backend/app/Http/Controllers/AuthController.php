@@ -31,6 +31,11 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
+
+        $customClaims = ['user_data' => $user];
+
+        $token = Auth::claims($customClaims)->attempt($credentials);
+
         return response()->json([
                 'status' => 'success',
                 'user' => $user,

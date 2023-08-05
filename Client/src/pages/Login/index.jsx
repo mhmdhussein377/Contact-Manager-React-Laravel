@@ -1,6 +1,7 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import "./style.css"
+import axios from "axios"
 
 const index = () => {
 
@@ -8,9 +9,27 @@ const index = () => {
         setEmail] = useState("");
     let [password,
         setPassword] = useState("");
+    let [error, setError] = useState(false)
+    const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const data = {
+            email,
+            password
+        }
+
+        try {
+            let response = await axios.post("http://127.0.0.1:8000/api/login", data);
+            localStorage.setItem('token', response.data.authorisation.token)
+            navigate("/")
+        } catch (error) {
+            setError(true)
+            setTimeout(() => {
+                setError(false)
+            }, 3000)
+        }
     };
 
     return (
@@ -39,6 +58,7 @@ const index = () => {
                             type="password"
                             placeholder="*42n16j1"/>
                     </div>
+                    {error && <div className="error">Wrong Credentials</div>}
                     <div className="submit-button">
                         <button type="submit">Login</button>
                     </div>

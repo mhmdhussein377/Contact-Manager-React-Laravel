@@ -92,3 +92,8 @@
     font-weight: 500;
     font-size: 1.125rem;
 }
+
+.login .error {
+    color: #2545ce;
+}
+
