@@ -16,7 +16,6 @@ const index = () => {
     useEffect(() => {
         const getContact = async() => {
             let response = await axios.post(`http://127.0.0.1:8000/api/contacts/${id}`);
-            console.log(response.data)
             setPosition([+ response.data.latitude]);
             setPosition((prev) => [
                 prev[0], + response.data.longitude
