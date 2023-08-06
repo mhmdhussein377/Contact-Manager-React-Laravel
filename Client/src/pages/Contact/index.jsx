@@ -15,7 +15,12 @@ const index = () => {
 
     useEffect(() => {
         const getContact = async() => {
-            let response = await axios.post(`http://127.0.0.1:8000/api/contacts/${id}`);
+            const token = localStorage.getItem("token")
+            let response = await axios.post(`http://127.0.0.1:8000/api/contacts/${id}`, null, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             setPosition([+ response.data.latitude]);
             setPosition((prev) => [
                 prev[0], + response.data.longitude
@@ -27,11 +32,7 @@ const index = () => {
     return (
         <React.Fragment>
             <Header/> {position.length > 0 && (
-                <Map
-                    className="map"
-                    height={300}
-                    defaultCenter={position}
-                    defaultZoom={11}>
+                <Map className="map" height={300} defaultCenter={position} defaultZoom={11}>
                     <Marker width={50} anchor={position}/>
                 </Map>
             )}

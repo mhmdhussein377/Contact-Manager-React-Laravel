@@ -25,7 +25,12 @@ const index = ({setIsOpened, user_id, setContacts}) => {
             user_id
         }
 
-        let response = await axios.post("http://127.0.0.1:8000/api/create-contact", body);
+        const token = localStorage.getItem("token")
+        let response = await axios.post("http://127.0.0.1:8000/api/create-contact", body, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
         setContacts(prev => [response.data, ...prev])
         setIsOpened(prev => !prev)
     }

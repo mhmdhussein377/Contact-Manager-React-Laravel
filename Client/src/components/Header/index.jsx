@@ -1,14 +1,21 @@
 import {Link, useNavigate} from "react-router-dom"
 import "./style.css"
+import axios from "axios"
 
 const index = () => {
 
     const navigate = useNavigate()
     const url = window.location.href
 
-    const handleLogout = () => {
+    const handleLogout = async() => {
+        const token = localStorage.getItem("token")
+        let response = await axios.post("http://127.0.0.1:8000/api/logout", null, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
         localStorage.removeItem("token")
-        navigate("/login")
+        navigate("/")
     }
 
     return (

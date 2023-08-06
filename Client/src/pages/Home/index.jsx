@@ -26,7 +26,12 @@ const index = () => {
     const user_id = payloadData.user_data.id
 
     const getContacts = async() => {
-        let response = await axios.post(`http://127.0.0.1:8000/api/contacts`, {user_id});
+        const token = localStorage.getItem("token")
+        let response = await axios.post(`http://127.0.0.1:8000/api/contacts`, {user_id}, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
         setContacts(response.data.reverse());
     };
 
