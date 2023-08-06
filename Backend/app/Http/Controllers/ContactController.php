@@ -13,7 +13,6 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required|string',
             'phone_number' => 'required|string',
-            'user_id' => 'required|int',
             'longitude' => 'required|numeric',
             'latitude' => 'required|numeric'
         ]);
@@ -23,7 +22,6 @@ class ContactController extends Controller
         $contact->phone_number = $request->phone_number;
         $contact->latitude = $request->latitude;
         $contact->longitude = $request->longitude;
-        $contact->user_id = $request->user_id;
         $contact->save();
 
         if($contact) {
@@ -35,13 +33,12 @@ class ContactController extends Controller
         }
     }
 
-    function getContacts(Request $request, $id = null) {
-        $user = User::find($request->user_id);
+    function getContacts($id = null) {
 
         if($id) {
             $contacts = Contact::find($id);
         }else {
-            $contacts = $user->contacts;
+            $contacts = Contact::all();
         }
 
         return response()->json($contacts);

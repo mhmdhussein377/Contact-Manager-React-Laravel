@@ -3,7 +3,7 @@ import "./style.css"
 import {VscChromeClose} from "react-icons/vsc";
 import axios from "axios";
 
-const index = ({setIsOpened, user_id, setContacts}) => {
+const index = ({setIsOpened, setContacts}) => {
 
     let [data,
         setData] = useState({name: "", phone_number: "", longitude: "", latitude: ""})
@@ -22,15 +22,9 @@ const index = ({setIsOpened, user_id, setContacts}) => {
             ...data,
             longitude: + data.longitude,
             latitude: + data.latitude,
-            user_id
         }
-
-        const token = localStorage.getItem("token")
-        let response = await axios.post("http://127.0.0.1:8000/api/create-contact", body, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
+        
+        let response = await axios.post("http://127.0.0.1:8000/api/create-contact", body);
         setContacts(prev => [response.data, ...prev])
         setIsOpened(prev => !prev)
     }

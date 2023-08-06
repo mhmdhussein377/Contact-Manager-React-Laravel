@@ -14,7 +14,6 @@ class Contact extends Model
         'phone_number',
         'longitude',
         'latitude',
-        'user_id',
     ];
 
     public function user() {
